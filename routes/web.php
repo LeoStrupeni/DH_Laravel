@@ -67,8 +67,30 @@ Route::get('/0806/Actores', 'actorController@listado');
 
 Route::get('/0806/Actor/{id}', 'actorController@show');
 
-Route::get('/0806/Actores/Buscar', 'actorController@search');
+Route::post('/0806/Actores', 'actorController@search');
 
+
+// Ejercitacion del dia 13082019
+
+Route::get('/0813/add', function(){
+    return  view('/0813/add');
+});
+
+Route::post('/0813/add','actorController@store');
+
+Route::get('/0813/{id}/edit','actorController@edit');
+
+Route::put('/0813/{id}/edit','actorController@update');
+
+Route::delete('/0813/delete','actorController@destroy')->name('actor.destroy');
+
+Route::get('/0813/Movies','MovieController@listado');
+
+Route::get('/0813/addMovie',function(){
+    return view('/0813/addMovie');
+});
+
+Route::put('/0813/addMovie','MovieController@store');
 
 
 Auth::routes();

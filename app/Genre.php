@@ -10,4 +10,8 @@ class Genre extends Model
     // public $primarykey='id';
     // public $timestamps=false;
     public $guarded=[];
+    
+    public function movies(){
+        return $this->hasMany(Movie::class,'Movie_id');
+    }
 }
