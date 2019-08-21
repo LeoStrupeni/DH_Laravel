@@ -22,8 +22,8 @@
             </div>
             
             <div class="col-4 mt-5">
-            
-                <img class="rounded mx-auto d-block" alt="Responsive image" src="\storage\{{$actor->foto}}">
+                
+                 <img class="rounded mx-auto d-block" alt="Responsive image" src="\storage\<?=(is_null($actor->foto)) ? 'imgND.jpg' : $actor->foto;?>">
             </div>
 
             <div class="btn-group-vertical col-2">
