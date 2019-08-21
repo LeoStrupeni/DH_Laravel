@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Actor;
+use Auth;
 
 class actorController extends Controller
 {
@@ -29,6 +30,11 @@ class actorController extends Controller
     }
 
     public function store(Request $req){
+        $usuarioLog = Auth::user();
+        if($usuarioLog == null){
+            return redirect("/login");
+        }
+
         $this->validate($req,[
             'first_name'=>'required',
             'last_name'=>'required',
@@ -54,12 +60,22 @@ class actorController extends Controller
     }
 
     public function edit($id){
+        $usuarioLog = Auth::user();
+        if($usuarioLog == null){
+            return redirect("/login");
+        }
+
         $actor = Actor::find($id);
         $vac = compact("actor");
         return view("/0813/edit",$vac);
     }
 
     public function update(Request $req){
+        $usuarioLog = Auth::user();
+        if($usuarioLog == null){
+            return redirect("/login");
+        }
+
         $actorNuevo = Actor::find($req['id']);
         $actorNuevo->first_name=$req['first_name'];
         $actorNuevo->last_name=$req['last_name'];
@@ -76,6 +92,11 @@ class actorController extends Controller
 
 
     public function destroy(Request $req){
+        $usuarioLog = Auth::user();
+        if($usuarioLog == null){
+            return redirect("/login");
+        }
+
         $id=$req['id'];
         $actor = Actor::find($id);
         $actor->delete();

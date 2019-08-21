@@ -11,8 +11,9 @@
 
 <div class="container">
     <div class="row">
-        <nav class="navbar navbar-expand-lg navbar-light bg-success w-100">
+        <nav class="navbar navbar-light bg-success w-100">
             <a class="navbar-brand">Practica Laravel</a>
+            <a href="/" class="navbar-brand">Volver a Inicio</a>
         </nav>
     </div>
     

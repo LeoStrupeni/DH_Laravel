@@ -73,6 +73,11 @@ Route::post('/0806/Actores', 'actorController@search');
 // Ejercitacion del dia 13082019
 
 Route::get('/0813/add', function(){
+    $usuarioLog = Auth::user();
+    if($usuarioLog == null){
+        return redirect("/login");
+    }
+
     return  view('/0813/add');
 });
 
@@ -92,7 +97,9 @@ Route::get('/0813/addMovie',function(){
 
 Route::put('/0813/addMovie','MovieController@store');
 
-
+// Ejercitacion del dia 15082019
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/0815/perfil', 'PerfilController@search');
