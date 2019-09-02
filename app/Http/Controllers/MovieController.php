@@ -40,5 +40,10 @@ class MovieController extends Controller
 
         return redirect("/0813/Movies");
     }
+
+    public function listadoAPI(){
+        $movies = Movie::all();
+        return json_encode($movies);
+    }
 }
 
